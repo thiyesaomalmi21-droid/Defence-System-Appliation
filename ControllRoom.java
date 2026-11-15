@@ -6,6 +6,7 @@ class ControllRoom extends JFrame{
     JButton collectInfobtn;
     JCheckBox allClearCBox;
     JTextArea mainControllerArea;
+    JTextArea mainControllerArea2;
     JCheckBox sendPrivateCBox;
     JButton sendBtn;
     ControllRoom(){
@@ -33,9 +34,6 @@ class ControllRoom extends JFrame{
         panel3.add(comboBox);
         panel3.add(collectInfobtn);
         panel3.add(allClearCBox);
-        panel2.add(panel3);
-        
-        
         
         JPanel panel4=new JPanel(new GridLayout(1,2));
         JPanel panel6=new JPanel(new GridLayout(2,2));
@@ -66,10 +64,29 @@ class ControllRoom extends JFrame{
         panel7.add(panel8);
         panel4.add(panel7);
         
+        JPanel panel5=new JPanel(new FlowLayout());
+        JLabel positionlbl=new JLabel("Position");
         
+        JSlider positionSlider=new JSlider(JSlider.HORIZONTAL,0,100,0);
+        positionSlider.setMajorTickSpacing(20);
+        positionSlider.setMinorTickSpacing(5);
+        positionSlider.setPaintTicks(true);
+        positionSlider.setPaintLabels(true);
         
+        panel5.add(positionlbl);
+        panel5.add(positionSlider);
+        
+        JPanel panel9=new JPanel(new FlowLayout());
+        mainControllerArea2=new JTextArea(5,20);
+        JScrollPane sPane2=new JScrollPane(mainControllerArea2);
+        sPane2.setBounds(50,50,200,100);
+        panel9.add(sPane2);
+        
+        panel2.add(panel3);
         panel2.add(panel4);
-        JPanel panel5=new JPanel();
+        panel2.add(panel5);
+        panel2.add(panel9);
+        
         
         add("Center",panel2);
         
