@@ -3,8 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 class ControllRoom extends JFrame{
     JComboBox<String> comboBox;
+    JButton collectInfobtn;
+    JCheckBox allClear;
     ControllRoom(){
-        setSize(600,600);
+        setSize(400,400);
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);  
@@ -22,7 +24,12 @@ class ControllRoom extends JFrame{
         String[] nameArray={"Select Defence","Helicopter","Tank","Submarine"};
         comboBox=new JComboBox<>(nameArray);
         
+        collectInfobtn=new JButton("Collect Information");
+        allClear=new JCheckBox("All Clear");
+        
         panel3.add(comboBox);
+        panel3.add(collectInfobtn);
+        panel3.add(allClear);
         panel2.add(panel3);
         
         
