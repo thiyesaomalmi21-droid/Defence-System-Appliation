@@ -14,11 +14,13 @@ class Submarine extends JFrame implements Observables{
     JButton sendbtn;
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
+    private String name="Submarine";
     
     Submarine(){
         setSize(400,400);
         setResizable(false);
         setLocation(800,0);
+        setTitle("Submarine");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         setLayout(new GridLayout(5,1));
@@ -123,6 +125,9 @@ class Submarine extends JFrame implements Observables{
         }
         
         area.setText(text);
+    }
+    public String getName(){
+        return name;
     }
 }
 

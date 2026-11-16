@@ -13,10 +13,12 @@ class Helicopter extends JFrame implements Observables{
     JButton sendbtn;
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
+    private String name="Helicopter";
     Helicopter(){
         setSize(400,400);
         setResizable(false);
         setLocation(0,0);
+        setTitle("Helicopter");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         setLayout(new GridLayout(5,1));
@@ -118,5 +120,8 @@ class Helicopter extends JFrame implements Observables{
         }
         
         area.setText(text);
+    }
+    public String getName(){
+        return name;
     }
 }

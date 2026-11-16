@@ -14,10 +14,12 @@ class Tank extends JFrame implements Observables{
     JButton sendbtn;
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
+    private String name="Tank";
     Tank(){
         setSize(400,400);
         setResizable(false);
         setLocation(400,0);
+        setTitle("Tank");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         setLayout(new GridLayout(5,1));
@@ -122,6 +124,9 @@ class Tank extends JFrame implements Observables{
         }
         
         area.setText(text);
+    }
+    public String getName(){
+        return name;
     }
 }
 

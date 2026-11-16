@@ -12,6 +12,7 @@ class ControllRoom extends JFrame{
     JLabel allClearlbl;
     
     private Observables[] observers=new Observables[0];
+    private String privateOrNot="Not";
     ControllRoom(){
         setSize(400,400);
         setLocation(400,400);
@@ -29,7 +30,7 @@ class ControllRoom extends JFrame{
         JPanel panel2=new JPanel(new GridLayout(5,1));
         
         JPanel panel10=new JPanel(new FlowLayout(FlowLayout.LEFT));
-        allClearlbl=new JLabel("hii");
+        allClearlbl=new JLabel("");
         panel10.add(allClearlbl);
         JPanel panel3=new JPanel(new FlowLayout());
         String[] nameArray={"Select Defence","Helicopter","Tank","Submarine"};
@@ -100,20 +101,55 @@ class ControllRoom extends JFrame{
         
         sendBtn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent evt){
-               String message = mainControllerArea.getText();
-               Message obj=new Message("MainController",message);
-               sendToOtherObservers(obj);
+                String message = mainControllerArea.getText();
+                Message obj=new Message("MainController",message);
+                if(privateOrNot.equals("Private")){
+                    String selectedItem=comboBox.getSelectedItem().toString();
+                    if(selectedItem.equals("Select Defence")){
+                        JOptionPane.showMessageDialog(null,"Select the observer from the dropdown above..");
+                    }else{
+                        int index=checkIndex(selectedItem);
+                        sendToOtherObservers2(index,obj);
+                    }
+                }else{
+                    sendToOtherObservers(obj);
+                }
+               
+               
                
                mainControllerArea.setText("");
             }
         });
         
+        sendPrivateCBox.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                if(sendPrivateCBox.isSelected()){
+                    privateOrNot="Private";
+                }else{
+                    privateOrNot="Not";
+                }
+            }
+        });
+        
         setVisible(true);
+    }
+    public int checkIndex(String selectedItem){
+        for(int i=0;i<observers.length;i++){
+            if(observers[i].getName().equals(selectedItem)){
+                return i;
+            }
+            
+        }
+        return -1;
     }
     public void sendToOtherObservers(Message obj){
         for(Observables obs : observers){
             obs.updateMaincontrollersMessage(obj);
         }
+    }
+    
+    public void sendToOtherObservers2(int index,Message obj){
+        observers[index].updateMaincontrollersMessage(obj);
     }
     public void extendObserverArray(){
         if(observers.length==0){
