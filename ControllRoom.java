@@ -11,7 +11,7 @@ class ControllRoom extends JFrame{
     JButton sendBtn;
     ControllRoom(){
         setSize(400,400);
-        setLocationRelativeTo(null);
+        setLocation(400,400);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);  
         

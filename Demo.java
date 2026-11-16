@@ -3,5 +3,6 @@ class Demo{
         ControllRoom c1=new ControllRoom();
         Helicopter h1=new Helicopter();
         Tank t1=new Tank();
+        Submarine s1=new Submarine();
     }
 }
