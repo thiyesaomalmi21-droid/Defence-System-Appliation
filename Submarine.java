@@ -6,8 +6,9 @@ class Submarine extends JFrame implements Observables{
     JSpinner solSpinner;
     JCheckBox position;
     JButton shoot;
-    JButton laser;
-    JButton missile;
+    JButton sonar;
+    JButton tomahawk;
+    JButton trident;
     JTextArea area;
     JTextField field;
     JButton sendbtn;
@@ -46,18 +47,21 @@ class Submarine extends JFrame implements Observables{
         JPanel panelA=new JPanel(new FlowLayout());
         JPanel panelB=new JPanel(new FlowLayout());
         JPanel panelC=new JPanel(new FlowLayout());
-        //JPanel panelD=new JPanel(new FlowLayout());
+        JPanel panelD=new JPanel(new FlowLayout());
         shoot=new JButton("Shoot");
-        laser=new JButton("Laser");
-        missile=new JButton("Missile");
+        sonar=new JButton("Sonar");
+        tomahawk=new JButton("Tomahawk");
+        trident=new JButton("Trident-2");
         panelA.add(shoot);
-        panelB.add(laser);
-        panelC.add(missile);
+        panelB.add(sonar);
+        panelC.add(tomahawk);
+        panelD.add(trident);
         
         position=new JCheckBox("Position");
         panelx.add(panelA);
         panelx.add(panelB);
         panelx.add(panelC);
+        panelx.add(panelD);
         
         panel2.add(panelx);
         panel2.add(position);

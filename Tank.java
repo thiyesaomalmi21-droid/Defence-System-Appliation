@@ -6,8 +6,9 @@ class Tank extends JFrame implements Observables{
     JSpinner solSpinner;
     JCheckBox position;
     JButton shoot;
-    JButton laser;
+    JButton radar;
     JButton missile;
+    JButton rotateshoot;
     JTextArea area;
     JTextField field;
     JButton sendbtn;
@@ -45,18 +46,21 @@ class Tank extends JFrame implements Observables{
         JPanel panelA=new JPanel(new FlowLayout());
         JPanel panelB=new JPanel(new FlowLayout());
         JPanel panelC=new JPanel(new FlowLayout());
-        //JPanel panelD=new JPanel(new FlowLayout());
+        JPanel panelD=new JPanel(new FlowLayout());
         shoot=new JButton("Shoot");
-        laser=new JButton("Laser");
+        radar=new JButton("Radar");
         missile=new JButton("Missile");
+        rotateshoot=new JButton("RotateShoot");
         panelA.add(shoot);
-        panelB.add(laser);
+        panelB.add(radar);
         panelC.add(missile);
+        panelD.add(rotateshoot);
         
         position=new JCheckBox("Position");
         panelx.add(panelA);
         panelx.add(panelB);
         panelx.add(panelC);
+        panelx.add(panelD);
         
         panel2.add(panelx);
         panel2.add(position);

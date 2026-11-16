@@ -9,6 +9,7 @@ class ControllRoom extends JFrame{
     JTextArea mainControllerArea2;
     JCheckBox sendPrivateCBox;
     JButton sendBtn;
+    JLabel allClearlbl;
     
     private Observables[] observers=new Observables[0];
     ControllRoom(){
@@ -25,7 +26,11 @@ class ControllRoom extends JFrame{
         panel1.add(label);
         
         add("North",panel1);
-        JPanel panel2=new JPanel(new GridLayout(4,1));
+        JPanel panel2=new JPanel(new GridLayout(5,1));
+        
+        JPanel panel10=new JPanel(new FlowLayout(FlowLayout.LEFT));
+        allClearlbl=new JLabel("hii");
+        panel10.add(allClearlbl);
         JPanel panel3=new JPanel(new FlowLayout());
         String[] nameArray={"Select Defence","Helicopter","Tank","Submarine"};
         comboBox=new JComboBox<>(nameArray);
@@ -84,6 +89,7 @@ class ControllRoom extends JFrame{
         sPane2.setBounds(50,50,200,100);
         panel9.add(sPane2);
         
+        panel2.add(panel10);
         panel2.add(panel3);
         panel2.add(panel4);
         panel2.add(panel5);
