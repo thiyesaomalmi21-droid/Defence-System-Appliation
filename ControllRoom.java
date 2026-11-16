@@ -92,7 +92,22 @@ class ControllRoom extends JFrame{
         
         add("Center",panel2);
         
+        sendBtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+               String message = mainControllerArea.getText();
+               Message obj=new Message("MainController",message);
+               sendToOtherObservers(obj);
+               
+               mainControllerArea.setText("");
+            }
+        });
+        
         setVisible(true);
+    }
+    public void sendToOtherObservers(Message obj){
+        for(Observables obs : observers){
+            obs.updateMaincontrollersMessage(obj);
+        }
     }
     public void extendObserverArray(){
         if(observers.length==0){

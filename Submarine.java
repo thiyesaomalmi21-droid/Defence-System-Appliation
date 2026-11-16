@@ -12,6 +12,7 @@ class Submarine extends JFrame implements Observables{
     JTextField field;
     JButton sendbtn;
     JSlider energylSlider;
+    private Message[] messageArray=new Message[0];
     
     Submarine(){
         setSize(400,400);
@@ -92,6 +93,32 @@ class Submarine extends JFrame implements Observables{
         setVisible(true);
         
         
+    }
+    public void exetendMessageArray(){
+        if(messageArray.length==0){
+            Message[] temp=new Message[messageArray.length+1];
+            messageArray=temp;
+        }else{
+            Message[] temp=new Message[messageArray.length+1];
+            for(int i=0;i<messageArray.length;i++){
+                temp[i]=messageArray[i];
+            }
+            messageArray=temp;
+        }
+    }
+    public void updateMaincontrollersMessage(Message obj){
+        exetendMessageArray();
+        messageArray[messageArray.length-1]=obj;
+        showMessageinArea();
+    }
+    public void showMessageinArea(){
+        area.setText("");
+        String text="";
+        for(Message mess : messageArray){
+            text+=mess.name+" : "+mess.message+"\n";
+        }
+        
+        area.setText(text);
     }
 }
 
