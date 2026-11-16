@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-class Tank extends JFrame{
+class Tank extends JFrame implements Observables{
     JLabel areaClearedlbl;
     JSpinner solSpinner;
     JCheckBox position;

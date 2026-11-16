@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-class Helicopter extends JFrame{
+class Helicopter extends JFrame implements Observables{
     JLabel areaClearedlbl;
     JSpinner solSpinner;
     JCheckBox position;

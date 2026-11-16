@@ -9,6 +9,8 @@ class ControllRoom extends JFrame{
     JTextArea mainControllerArea2;
     JCheckBox sendPrivateCBox;
     JButton sendBtn;
+    
+    private Observables[] observers=new Observables[0];
     ControllRoom(){
         setSize(400,400);
         setLocation(400,400);
@@ -91,5 +93,21 @@ class ControllRoom extends JFrame{
         add("Center",panel2);
         
         setVisible(true);
+    }
+    public void extendObserverArray(){
+        if(observers.length==0){
+            Observables[] temp=new Observables[observers.length+1];
+            observers=temp;
+        }else{
+            Observables[] temp=new Observables[observers.length+1];
+            for(int i=0;i<observers.length;i++){
+                temp[i]=observers[i];
+            }
+            observers=temp; 
+        }
+    }
+    public void addObservers(Observables observer){
+        extendObserverArray();
+        observers[observers.length-1]=observer;
     }
 }

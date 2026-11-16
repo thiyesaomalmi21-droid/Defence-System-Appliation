@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-class Submarine extends JFrame{
+class Submarine extends JFrame implements Observables{
     JLabel areaClearedlbl;
     JSpinner solSpinner;
     JCheckBox position;
