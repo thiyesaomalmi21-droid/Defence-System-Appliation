@@ -6,13 +6,14 @@ class ControllRoom extends JFrame{
     JButton collectInfobtn;
     JCheckBox allClearCBox;
     JTextArea mainControllerArea;
-    JTextArea mainControllerArea2;
+    static JTextArea mainControllerArea2;
     JCheckBox sendPrivateCBox;
     JButton sendBtn;
     JLabel allClearlbl;
     
     private Observables[] observers=new Observables[0];
     private String privateOrNot="Not";
+    private static Message[] messageArray=new Message[0];
     ControllRoom(){
         setSize(400,400);
         setLocation(400,400);
@@ -166,5 +167,33 @@ class ControllRoom extends JFrame{
     public void addObservers(Observables observer){
         extendObserverArray();
         observers[observers.length-1]=observer;
+    }
+    public static void extendMessageArray(){
+        if(messageArray.length==0){
+            Message[] temp=new Message[messageArray.length+1];
+            messageArray=temp;
+        }else{
+            Message[] temp=new Message[messageArray.length+1];
+            for(int i=0;i<messageArray.length;i++){
+                temp[i]=messageArray[i];
+            }
+            messageArray=temp;
+        }
+    }
+    public static void setTextInTextArea(){
+        mainControllerArea2.setText("");
+        String text="";
+        for(Message msg : messageArray){
+            text+=msg.name+" : "+msg.message+"\n";
+        }
+        mainControllerArea2.setText(text);
+        
+    }
+    public static void getMessages(Message obj){
+       
+        extendMessageArray();
+        messageArray[messageArray.length-1]=obj;
+        setTextInTextArea();
+        
     }
 }

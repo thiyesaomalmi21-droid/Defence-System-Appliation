@@ -91,6 +91,17 @@ class Helicopter extends JFrame implements Observables{
         add(panel3);
         add(panel4);
         add(panel5);
+        
+        sendbtn.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                String message=field.getText();
+                Message obj=new Message(name,message);
+                ControllRoom.getMessages(obj);
+                
+                field.setText("");
+            }
+        });
+        
         setVisible(true);
         
         
