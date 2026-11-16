@@ -8,22 +8,21 @@ class Helicopter extends JFrame{
     JButton shoot;
     JButton laser;
     JButton missile;
+    JTextArea area;
+    JTextField field;
+    JButton sendbtn;
+    JSlider energylSlider;
     
     Helicopter(){
         setSize(400,400);
         setResizable(false);
+        setLocation(0,0);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        
         setLayout(new GridLayout(5,1));
         
-        
-        JPanel panel3=new JPanel();
-        JPanel panel4=new JPanel();
-        JPanel panel5=new JPanel();
-        
-        
         JPanel panel1=new JPanel(new GridLayout(1,2));
-        areaClearedlbl=new JLabel("Hello");
+        areaClearedlbl=new JLabel("");
         
         JPanel panel6=new JPanel(new GridLayout(2,2));
         JLabel lblSolcount=new JLabel("Soldier Count");
@@ -62,8 +61,34 @@ class Helicopter extends JFrame{
         panel2.add(panelx);
         panel2.add(position);
         
+        JPanel panel3=new JPanel(new FlowLayout());
+        area=new JTextArea(5,20);
+        JScrollPane sPane=new JScrollPane(area);
+        sPane.setBounds(50,50,200,100);
+        panel3.add(sPane);
+        
+        JPanel panel4=new JPanel(new FlowLayout());
+        field=new JTextField(20);
+        sendbtn=new JButton("Send");
+        
+        panel4.add(field);
+        panel4.add(sendbtn);
+        
+        JPanel panel5=new JPanel(new FlowLayout());
+        
+        energylSlider=new JSlider(JSlider.HORIZONTAL,0,100,0);
+        energylSlider.setMajorTickSpacing(20);
+        energylSlider.setMinorTickSpacing(5);
+        energylSlider.setPaintTicks(true);
+        energylSlider.setPaintLabels(true);
+        
+        panel5.add(energylSlider);
+        
         add(panel1);
         add(panel2);
+        add(panel3);
+        add(panel4);
+        add(panel5);
         setVisible(true);
         
         
