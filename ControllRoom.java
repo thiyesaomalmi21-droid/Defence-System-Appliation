@@ -135,10 +135,27 @@ class ControllRoom extends JFrame{
         positionSlider.addChangeListener(event->{
             if(positionSlider.getValueIsAdjusting()){
                 int value=positionSlider.getValue();
+                cEnabelBtns(value);
             }
         });
         
         setVisible(true);
+    }
+    public void cEnabelBtns(int value){
+        Strength x=Strength.LOW;
+        if(value<=20){
+            x=Strength.LOW;
+        }else if(value<=50){
+            x=Strength.MEDIUM;
+        }else if(value<=80){
+            x=Strength.HIGH;
+        }else{
+          x=Strength.STRONG;  
+        }
+        
+        for(Observables obs:observers){
+            obs.setBtnEnabled(x);
+        }
     }
     public int checkIndex(String selectedItem){
         for(int i=0;i<observers.length;i++){

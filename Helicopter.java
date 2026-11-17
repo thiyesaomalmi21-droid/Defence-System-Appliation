@@ -144,4 +144,8 @@ class Helicopter extends JFrame implements Observables{
     public String getName(){
         return name;
     }
+    
+    public void setBtnEnabled(Strength x){
+        
+    }
 }
