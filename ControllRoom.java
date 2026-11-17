@@ -132,6 +132,12 @@ class ControllRoom extends JFrame{
             }
         });
         
+        positionSlider.addChangeListener(event->{
+            if(positionSlider.getValueIsAdjusting()){
+                int value=positionSlider.getValue();
+            }
+        });
+        
         setVisible(true);
     }
     public int checkIndex(String selectedItem){

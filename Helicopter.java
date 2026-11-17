@@ -14,6 +14,7 @@ class Helicopter extends JFrame implements Observables{
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
     private String name="Helicopter";
+    private String positionCheckedOrNot="Not";
     Helicopter(){
         setSize(400,400);
         setResizable(false);
@@ -101,7 +102,15 @@ class Helicopter extends JFrame implements Observables{
                 field.setText("");
             }
         });
-        
+        position.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                if(position.isSelected()){
+                    positionCheckedOrNot="Positioned";
+                }else{
+                    positionCheckedOrNot="Not";
+                }
+            }
+        });
         setVisible(true);
         
         

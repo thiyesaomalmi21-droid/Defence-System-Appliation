@@ -15,6 +15,7 @@ class Submarine extends JFrame implements Observables{
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
     private String name="Submarine";
+    private String positionCheckedOrNot="Not";
     
     Submarine(){
         setSize(400,400);
@@ -104,6 +105,16 @@ class Submarine extends JFrame implements Observables{
                 ControllRoom.getMessages(obj);
                 
                 field.setText("");
+            }
+        });
+        
+        position.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                if(position.isSelected()){
+                    positionCheckedOrNot="Positioned";
+                }else{
+                    positionCheckedOrNot="Not";
+                }
             }
         });
         setVisible(true);

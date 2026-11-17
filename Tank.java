@@ -14,6 +14,7 @@ class Tank extends JFrame implements Observables{
     JButton sendbtn;
     JSlider energylSlider;
     private Message[] messageArray=new Message[0];
+    private String positionCheckedOrNot="Not";
     private String name="Tank";
     Tank(){
         setSize(400,400);
@@ -105,7 +106,15 @@ class Tank extends JFrame implements Observables{
                 field.setText("");
             }
         });
-        
+        position.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt){
+                if(position.isSelected()){
+                    positionCheckedOrNot="Positioned";
+                }else{
+                    positionCheckedOrNot="Not";
+                }
+            }
+        });
         setVisible(true);
         
         
