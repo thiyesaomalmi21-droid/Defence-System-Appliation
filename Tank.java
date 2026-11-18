@@ -54,6 +54,11 @@ class Tank extends JFrame implements Observables{
         radar=new JButton("Radar");
         missile=new JButton("Missile");
         rotateshoot=new JButton("RotateShoot");
+        
+        shoot.setEnabled(false);
+        radar.setEnabled(false);
+        missile.setEnabled(false);
+        rotateshoot.setEnabled(false);
         panelA.add(shoot);
         panelB.add(radar);
         panelC.add(missile);
@@ -150,7 +155,23 @@ class Tank extends JFrame implements Observables{
     }
     
     public void setBtnEnabled(Strength x){
-        
+        if(positionCheckedOrNot.equals("Positioned")){
+            if(x==Strength.LOW){
+                shoot.setEnabled(true);
+            }else if(x==Strength.MEDIUM){
+                shoot.setEnabled(true);
+                radar.setEnabled(true);
+            }else if(x==Strength.HIGH){
+                shoot.setEnabled(true);
+                radar.setEnabled(true);
+                missile.setEnabled(true);
+            }else if(x==Strength.STRONG){
+                shoot.setEnabled(true);
+                radar.setEnabled(true);
+                missile.setEnabled(true);
+                rotateshoot.setEnabled(true);
+            }
+        }
     }
 }
 

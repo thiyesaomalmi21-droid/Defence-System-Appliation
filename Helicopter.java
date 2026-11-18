@@ -52,6 +52,10 @@ class Helicopter extends JFrame implements Observables{
         shoot=new JButton("Shoot");
         laser=new JButton("Laser");
         missile=new JButton("Missile");
+        
+        shoot.setEnabled(false);
+        laser.setEnabled(false);
+        missile.setEnabled(false);
         panelA.add(shoot);
         panelB.add(laser);
         panelC.add(missile);
@@ -146,6 +150,17 @@ class Helicopter extends JFrame implements Observables{
     }
     
     public void setBtnEnabled(Strength x){
-        
+        if(positionCheckedOrNot.equals("Positioned")){
+            if(x==Strength.LOW){
+                shoot.setEnabled(true);
+            }else if(x==Strength.MEDIUM){
+                shoot.setEnabled(true);
+                laser.setEnabled(true);
+            }else if(x==Strength.HIGH){
+                shoot.setEnabled(true);
+                laser.setEnabled(true);
+                missile.setEnabled(true);
+            }
+        }
     }
 }

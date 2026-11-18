@@ -52,13 +52,18 @@ class Submarine extends JFrame implements Observables{
         JPanel panelC=new JPanel(new FlowLayout());
         JPanel panelD=new JPanel(new FlowLayout());
         shoot=new JButton("Shoot");
-        shoot.setEnabled(false);
+        
         sonar=new JButton("Sonar");
-        sonar.setEnabled(false);
+        
         tomahawk=new JButton("Tomahawk");
-        tomahawk.setEnabled(false);
+        
         trident=new JButton("Trident-2");
+        
+        shoot.setEnabled(false);
+        sonar.setEnabled(false);
+        tomahawk.setEnabled(false);
         trident.setEnabled(false);
+        
         panelA.add(shoot);
         panelB.add(sonar);
         panelC.add(tomahawk);
